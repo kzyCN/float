@@ -17,7 +17,7 @@
 - [Vue 2.6.10](https://cn.vuejs.org/),[Vuex](https://vuex.vuejs.org/zh/),[Vue Router](https://router.vuejs.org/zh/)
 - [Axios](https://github.com/axios/axios)
 - [ElementUI](https://element.eleme.cn/#/zh-CN)
-- [webpack](https://www.webpackjs.com/),[npm]([npm (npmjs.com)](https://www.npmjs.com/))
+- [webpack](https://www.webpackjs.com/),[npm](https://www.npmjs.com/)
 
 #### 后端
 
