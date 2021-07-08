@@ -14,5 +14,11 @@ public interface UserDao {
     // 通过用户名查找用户
     User getUsernameByName(String username);
 
+    // 普通用户注册
+    void UserRegistration(User user);
+
+    // 通过uid删除用户
+    void deleteUserByUid(int uid);
+
 
 }

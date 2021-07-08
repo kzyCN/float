@@ -25,7 +25,7 @@ public class UserController {
      * 用户登录
      *
      * @param user
-     * @return
+     * @return 登录成功或登录失败
      */
     @PostMapping("login")
     public Map<String, Object> login(@RequestBody User user) {
@@ -55,13 +55,76 @@ public class UserController {
     }
 
     /**
+     * 普通用户注册接口
+     *
+     * @param user
+     * @return
+     */
+    @PostMapping("reg")
+    public Map<String, Object> UserRegistration(@RequestBody User user) {
+
+        Map<String, Object> map = new HashMap<>();
+
+        try {
+
+            Boolean byUsername = userService.findUsernameRepeat(user.getUsername());
+
+            if (byUsername) {
+
+                map.put("static", false);
+                map.put("msg", "注册失败，用户名重复");
+
+            } else {
+
+                userService.UserRegistration(user);
+                map.put("static", true);
+                map.put("msg", "注册成功");
+
+            }
+
+        } catch (Exception e) {
+            map.put("static", false);
+            map.put("msg", e.getMessage());
+        }
+
+        return map;
+    }
+
+    /**
      * 查找全部用户
      *
-     * @return
+     * @return 用户对象数组
      */
     @GetMapping("user/findall")
     public List<User> findAll() {
         return userService.findAllUser();
+    }
+
+    /**
+     * 用户删除
+     *
+     * @param user
+     * @return
+     */
+    @PostMapping("user/delete")
+    public Map<String, Object> deleteUser(@RequestBody User user) {
+
+        Map<String, Object> map = new HashMap<>();
+
+        try {
+
+            User userDB = userService.findByUsername(user.getUsername());
+
+            userService.deleteUserByUid(userDB.getUid());
+            map.put("static", true);
+            map.put("msg", "删除成功");
+
+        } catch (Exception e) {
+            map.put("static", false);
+            map.put("msg", e.getMessage());
+        }
+
+        return map;
     }
 
 }

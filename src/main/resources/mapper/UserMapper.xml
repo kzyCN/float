@@ -5,16 +5,28 @@
 
     <!--查询所有用户-->
     <select id="findAllUser" resultType="com.fsyume.eneity.User">
-        select *
+        select uid, username, isadmin, createtime, utype
         from `user`
     </select>
 
     <!--通过用户名查询-->
-    <select id="getUsernameByName" parameterType="com.fsyume.eneity.User" resultType="com.fsyume.eneity.User">
+    <select id="getUsernameByName" resultType="com.fsyume.eneity.User">
         select *
         from `user`
         where username = #{username}
     </select>
 
+    <!--新增用户-->
+    <insert id="UserRegistration" parameterType="com.fsyume.eneity.User">
+        insert into user(username, isadmin, password, utype)
+        values (#{username}, 0, #{password}, '普通用户')
+    </insert>
+
+    <!--通过uid删除用户-->
+    <delete id="deleteUserByUid" parameterType="com.fsyume.eneity.User">
+        delete
+        from `user`
+        where uid = #{uid}
+    </delete>
 
 </mapper>

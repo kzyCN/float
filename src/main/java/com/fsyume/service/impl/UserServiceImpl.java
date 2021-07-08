@@ -6,18 +6,16 @@ import com.fsyume.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserDao userDao;
-
-    // 依赖注入
     @Autowired
-    public UserServiceImpl(UserDao userDao) {
-        this.userDao = userDao;
-    }
+    private UserDao userDao;
+
 
     /**
      * 查询所有用户
@@ -46,5 +44,55 @@ public class UserServiceImpl implements UserService {
         }
 
         throw new RuntimeException("登录失败，请检查用户名和密码");
+    }
+
+    /**
+     * 用户注册
+     *
+     * @param user
+     */
+    @Override
+    public void UserRegistration(User user) {
+        userDao.UserRegistration(user);
+    }
+
+    /**
+     * 查找重复用户
+     *
+     * @param username
+     * @return
+     */
+    @Override
+    public Boolean findUsernameRepeat(String username) {
+
+        User name = userDao.getUsernameByName(username);
+
+        if (name == null) {
+            return false;
+        }
+
+        return true;
+    }
+
+
+    /**
+     * 通过用户名查找用用户
+     *
+     * @param username
+     * @return
+     */
+    @Override
+    public User findByUsername(String username) {
+        return userDao.getUsernameByName(username);
+    }
+
+    /**
+     * 删除用户
+     *
+     * @param uid
+     */
+    @Override
+    public void deleteUserByUid(int uid) {
+        userDao.deleteUserByUid(uid);
     }
 }
