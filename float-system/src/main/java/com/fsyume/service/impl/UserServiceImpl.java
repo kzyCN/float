@@ -67,11 +67,7 @@ public class UserServiceImpl implements UserService {
 
         User name = userDao.getUsernameByName(username);
 
-        if (name == null) {
-            return false;
-        }
-
-        return true;
+        return name != null;
     }
 
 
@@ -87,6 +83,16 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * 通过uid查找用户
+     * @param uid
+     * @return
+     */
+    @Override
+    public User getUserByUid(int uid) {
+        return userDao.getUserByUid(uid);
+    }
+
+    /**
      * 删除用户
      *
      * @param uid
@@ -94,5 +100,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUserByUid(int uid) {
         userDao.deleteUserByUid(uid);
+    }
+
+    /**
+     * 用户信息更新
+     * @param user
+     */
+    @Override
+    public void updateUser(User user) {
+        userDao.updateUser(user);
     }
 }

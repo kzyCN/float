@@ -11,7 +11,7 @@ public class MyConfig implements WebMvcConfigurer {
     /**
      * 配置拦截器
      *
-     * @param registry
+     * @param registry 拦截器
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

@@ -16,6 +16,13 @@
         where username = #{username}
     </select>
 
+    <!--通过UID查找用户-->
+    <select id="getUserByUid" resultType="com.fsyume.eneity.User">
+        select *
+        from `user`
+        where uid = #{uid}
+    </select>
+
     <!--新增用户-->
     <insert id="UserRegistration" parameterType="com.fsyume.eneity.User">
         insert into user(username, isadmin, password, utype)
@@ -28,5 +35,19 @@
         from `user`
         where uid = #{uid}
     </delete>
+
+    <!--更新用户信息-->
+    <update id="updateUser" parameterType="com.fsyume.eneity.User">
+        update `user`
+        <set>
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="password != null">
+                password = #{password}
+            </if>
+        </set>
+        where uid = #{uid}
+    </update>
 
 </mapper>

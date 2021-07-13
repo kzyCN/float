@@ -23,8 +23,8 @@ public class JwtUtil {
     /**
      * 生成JWT token
      *
-     * @param username
-     * @return
+     * @param username 用户名
+     * @return jwt-token
      */
     public static String getToken(String username, int uid) {
 
@@ -61,7 +61,7 @@ public class JwtUtil {
     /**
      * 验证token 合法性
      *
-     * @param token
+     * @param token jwt-token
      */
     public static void verify(String token) {
         //创建验证对象，这里的签名一定要保持一直
