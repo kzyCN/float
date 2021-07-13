@@ -67,11 +67,7 @@ public class UserServiceImpl implements UserService {
 
         User name = userDao.getUsernameByName(username);
 
-        if (name == null) {
-            return false;
-        }
-
-        return true;
+        return name != null;
     }
 
 
