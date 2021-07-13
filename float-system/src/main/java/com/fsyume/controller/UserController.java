@@ -127,4 +127,29 @@ public class UserController {
         return map;
     }
 
+    /**
+     * 用户更新
+     * @param user
+     * @return
+     */
+    @PostMapping("user/update")
+    public Map<String,Object> updateUser(@RequestBody User user){
+        Map<String, Object> map = new HashMap<>();
+
+
+        try {
+            userService.updateUser(user);
+
+            map.put("static", true);
+            map.put("msg", "更新成功");
+
+        } catch (Exception e) {
+            map.put("static", false);
+            map.put("msg", e.getMessage());
+        }
+
+
+        return map;
+    }
+
 }

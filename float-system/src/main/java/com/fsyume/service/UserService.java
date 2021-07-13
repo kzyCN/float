@@ -22,6 +22,12 @@ public interface UserService {
     // 通过用户名查找用户
     User findByUsername(String username);
 
+    // 通过uid查找用户
+    User getUserByUid(int uid);
+
     // 通过uid删除用户
     void deleteUserByUid(int uid);
+
+    // 用户信息更新
+    void updateUser(User user);
 }
