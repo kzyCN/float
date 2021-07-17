@@ -1,12 +1,9 @@
 server:
   port: 8090
 
-
 # 又拍云配置信息
 upYun:
-  upYunUrl: http://float.fsyume.com
   upYunServerName: float
-  upYunFilePath: float-system
-  upYunUserName: float
+  upYunUsername: float
   upYunPassword: nWR9B5CCL8sGIN2sYg1AK0DyK6LaiNHd
 
