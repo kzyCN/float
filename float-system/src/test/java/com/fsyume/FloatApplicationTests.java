@@ -26,8 +26,6 @@ class FloatApplicationTests {
     @Value("${upYun.upYunPassword}")
     private String password;
 
-    @Value("${upYun.upYunUrl}")
-    private String Url;
 
     @Test
     void upYunUpdate() {
@@ -74,8 +72,6 @@ class FloatApplicationTests {
         }
 
 
-        System.out.println(Url);
-
     }
 
     @Test
@@ -92,7 +88,7 @@ class FloatApplicationTests {
 
         //添加同步上传作图参数 X_GMKERL_THUMB
         // //限定图片宽度为 300px、锐化、压缩质量 80、存储为 png 格式（参数不区分先后顺序）
-        paramsMap.put(Params.X_GMKERL_THUMB, "/fw/300/unsharp/true/quality/80/format/png");
+        // paramsMap.put(Params.X_GMKERL_THUMB, "/fw/300/unsharp/true/quality/80/format/png");
 
         //打印结果
         Result result = null;
