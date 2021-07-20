@@ -1,5 +1,6 @@
 package com.fsyume.controller;
 
+import com.fsyume.config.UpYunConfig;
 import com.fsyume.eneity.User;
 import com.fsyume.service.UserService;
 import com.fsyume.utils.JwtUtil;
@@ -20,6 +21,8 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
+
+
 
     /**
      * 用户登录

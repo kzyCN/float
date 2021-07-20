@@ -1,7 +1,8 @@
 package com.fsyume.controller;
 
-import com.fsyume.utils.upYunUtil;
+import com.fsyume.config.UpYunConfig;
 import com.upyun.Result;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,9 @@ import java.util.Map;
 @RestController
 @CrossOrigin// 允许跨域
 public class UploadController {
+
+    @Autowired
+    private UpYunConfig upYunConfig;
 
     @PostMapping("upimage")
     public Map<String,Object> UpImage(@RequestBody MultipartFile file) throws IOException, NoSuchAlgorithmException, SignatureException, InvalidKeyException {
@@ -41,9 +45,7 @@ public class UploadController {
 
         byte[] fileBytes = file.getBytes();
 
-        upYunUtil upYunUtil = new upYunUtil();
-
-        Result result = upYunUtil.upImage(filename, fileBytes);
+        Result result = upYunConfig.upImage(filename, fileBytes);
 
         map.put("msg","上传成功");
         map.put("log",result.getMsg());

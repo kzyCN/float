@@ -1,8 +1,11 @@
-package com.fsyume.utils;
+package com.fsyume.config;
 
 import com.upyun.FormUploader;
 import com.upyun.Params;
 import com.upyun.Result;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -10,22 +13,24 @@ import java.security.SignatureException;
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
+public class UpYunConfig {
 
-public class upYunUtil {
+    @Value("${upyun.servername}")
+    private String servername;
 
-    private final String ServerName = "float";
+    @Value("${upyun.username}")
+    private String username;
 
-    private final String Username = "float";
-
-    private final String password = "nWR9B5CCL8sGIN2sYg1AK0DyK6LaiNHd";
-
+    @Value("${upyun.password}")
+    private String password;
 
     public Result upImage(String filename , byte[] file) throws NoSuchAlgorithmException, SignatureException, InvalidKeyException {
 
-        System.out.println(ServerName+ "-" + Username+  "-"  + password);
+        System.out.println(servername + "-" + username +  "-"  + password);
 
         //初始化
-        FormUploader formUploader = new FormUploader(ServerName, Username, password);
+        FormUploader formUploader = new FormUploader(servername, username, password);
 
         //初始化参数组 Map
         final Map<String, Object> paramsMap = new HashMap<>();
