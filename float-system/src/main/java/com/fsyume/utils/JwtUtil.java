@@ -45,7 +45,7 @@ public class JwtUtil {
         Algorithm algorithm = Algorithm.HMAC256(SING);
 
 
-        String token = JWT.create()
+        return JWT.create()
                 .withIssuedAt(now)  //签发时间
                 .withHeader(headerMap)
                 .withClaim("username", username)
@@ -53,8 +53,6 @@ public class JwtUtil {
                 .withSubject("user")
                 .withExpiresAt(expireTime)
                 .sign(algorithm);
-
-        return token;
 
     }
 

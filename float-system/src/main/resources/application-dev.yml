@@ -7,8 +7,5 @@ spring:
       max-file-size: 200MB
 
 # 又拍云配置信息
-upYun:
-    upYunServerName: float
-    upYunUsername: float
-    upYunPassword: nWR9B5CCL8sGIN2sYg1AK0DyK6LaiNHd
+
 

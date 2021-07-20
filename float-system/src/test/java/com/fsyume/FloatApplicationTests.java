@@ -45,7 +45,7 @@ class FloatApplicationTests {
         // }
 
         String str = "C:/Users/kzy/Pictures/kx.png";
-        Map<String, String> params = new HashMap<String, String>();
+        Map<String, String> params = new HashMap<>();
 
         // 设置待上传文件的 Content-MD5 值
         // 如果又拍云服务端收到的文件MD5值与用户设置的不一致，将回报 406 NotAcceptable 错误
@@ -65,9 +65,7 @@ class FloatApplicationTests {
         try {
             Response result = manager.writeFile("/float/img/kx",file,params);
             System.out.println(result.isSuccessful());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (UpException e) {
+        } catch (IOException | UpException e) {
             e.printStackTrace();
         }
 
@@ -79,7 +77,7 @@ class FloatApplicationTests {
         FormUploader formUploader = new FormUploader(ServerName, Username, password);
 
         //初始化参数组 Map
-        final Map<String, Object> paramsMap = new HashMap<String, Object>();
+        final Map<String, Object> paramsMap = new HashMap<>();
 
         //添加 SAVE_KEY 参数
         //filename为文件名(例如：12345.jpg)
@@ -91,7 +89,7 @@ class FloatApplicationTests {
         // paramsMap.put(Params.X_GMKERL_THUMB, "/fw/300/unsharp/true/quality/80/format/png");
 
         //打印结果
-        Result result = null;
+        Result result;
 
         String imgPath = "C:/Users/kzy/Pictures/kx.png";
         File file = new File(imgPath);

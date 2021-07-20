@@ -24,8 +24,8 @@ public class UserController {
     /**
      * 用户登录
      *
-     * @param user
-     * @return 登录成功或登录失败
+     * @param user 用户登录信息
+     * @return 登录成功或登录失败 + JWT令牌
      */
     @PostMapping("login")
     public Map<String, Object> login(@RequestBody User user) {
@@ -57,8 +57,8 @@ public class UserController {
     /**
      * 普通用户注册接口
      *
-     * @param user
-     * @return
+     * @param user 用户注册信息
+     * @return 注册成功或失败
      */
     @PostMapping("reg")
     public Map<String, Object> UserRegistration(@RequestBody User user) {
@@ -103,8 +103,8 @@ public class UserController {
     /**
      * 用户删除
      *
-     * @param user
-     * @return
+     * @param user 要删除的用户信息
+     * @return 删除成功或失败
      */
     @PostMapping("user/delete")
     public Map<String, Object> deleteUser(@RequestBody User user) {
@@ -129,8 +129,8 @@ public class UserController {
 
     /**
      * 用户更新
-     * @param user
-     * @return
+     * @param user 要更新的用户信息
+     * @return 更新成功或者失败
      */
     @PostMapping("user/update")
     public Map<String,Object> updateUser(@RequestBody User user){
