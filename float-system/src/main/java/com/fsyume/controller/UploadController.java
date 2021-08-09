@@ -1,5 +1,6 @@
 package com.fsyume.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fsyume.config.UpYunConfig;
 import com.upyun.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class UploadController {
         // 上传的文件名
         String filename = file.getOriginalFilename();
 
-        System.out.println(filename);
+        // System.out.println(filename);
 
 
         //获取文件的后缀
@@ -41,7 +42,7 @@ public class UploadController {
             suffixName = filename.substring(filename.lastIndexOf("."));
         }
 
-        System.out.println(suffixName);
+        // System.out.println(suffixName);
 
         byte[] fileBytes = file.getBytes();
 

@@ -3,16 +3,16 @@
     {
       "name": "upyun.username",
       "type": "java.lang.String",
-      "description": "Description for upyun.username."
+      "description": "又拍云用户名"
     },
     {
       "name": "upyun.servername",
       "type": "java.lang.String",
-      "description": "Description for upyun.servername."
+      "description": "又拍云服务名"
     },
     {
       "name": "upyun.password",
       "type": "java.lang.String",
-      "description": "Description for upyun.password."
+      "description": "又拍云密码"
     }
   ] }

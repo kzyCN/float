@@ -26,7 +26,7 @@ public class JwtUtil {
      * @param username 用户名
      * @return jwt-token
      */
-    public static String getToken(String username, int uid) {
+    public static String getToken(String username, int uid, int isAdmain) {
 
         // 头部
         Map<String, Object> headerMap = new HashMap<>(4);
@@ -50,6 +50,7 @@ public class JwtUtil {
                 .withHeader(headerMap)
                 .withClaim("username", username)
                 .withClaim("uid", uid)
+                .withClaim("isAdmin",isAdmain)
                 .withSubject("user")
                 .withExpiresAt(expireTime)
                 .sign(algorithm);
@@ -85,6 +86,21 @@ public class JwtUtil {
         }
         assert verifier != null;
         return verifier.getClaim("username").asString();
+    }
+
+    public static Integer verifyIsAdmin(String token){
+        DecodedJWT verifier = null;
+        Algorithm algorithm = Algorithm.HMAC256(SING);
+        try {
+            verifier = JWT.require(algorithm).build().verify(token);
+        } catch (Exception e) {
+            //JSONObject jsonObject = new JSONObject();
+            //jsonObject.put("status", "401");
+            //jsonObject.put("msg", "验证失败，请重新登录!");
+            //处理验证异常
+        }
+        assert verifier != null;
+        return verifier.getClaim("isAdmin").asInt();
     }
 
 }

@@ -23,7 +23,6 @@ public class UserController {
     }
 
 
-
     /**
      * 用户登录
      *
@@ -40,11 +39,12 @@ public class UserController {
             User userDB = userService.login(user);
 
             //生成jwt令牌
-            String token = JwtUtil.getToken(userDB.getUsername(), userDB.getUid());
+            String token = JwtUtil.getToken(userDB.getUsername(), userDB.getUid(), userDB.getIsadmin());
 
 
             map.put("username", userDB.getUsername());
             map.put("uid", userDB.getUid());
+            map.put("isAdmin",userDB.getIsadmin());
             map.put("token", token);
             map.put("static", true);
             map.put("msg", "登录成功");
