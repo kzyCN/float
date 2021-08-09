@@ -6,6 +6,12 @@
 
 本系统为前后端分离项目，前端使用Vue全家桶，组件库为Element UI，后端为Springboot+MyBatis+jwt
 
+主要更新地点为Github，国内镜像Gitee会有延迟
+
+Github地址：https://github.com/kzycn/float
+
+Gitee地址：https://gitee.com/kzycn/float
+
 ### 项目文档
 
 > Under construction
