@@ -1,7 +1,6 @@
 package com.fsyume.service;
 
 import com.fsyume.eneity.User;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

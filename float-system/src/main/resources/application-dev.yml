@@ -1,14 +1,11 @@
 server:
   port: 8090
 
+# 设置服务器最大上传文件的大小
 spring:
   servlet:
     multipart:
-      max-file-size: 200MB
+      max-file-size: 100MB
 
-# 又拍云配置信息
-upYun:
-    upYunServerName: float
-    upYunUsername: float
-    upYunPassword: nWR9B5CCL8sGIN2sYg1AK0DyK6LaiNHd
+
 

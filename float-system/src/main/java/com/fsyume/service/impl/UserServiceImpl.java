@@ -3,24 +3,24 @@ package com.fsyume.service.impl;
 import com.fsyume.dao.UserDao;
 import com.fsyume.eneity.User;
 import com.fsyume.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserDao userDao;
+    private final UserDao userDao;
+
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
 
     /**
      * 查询所有用户
      *
-     * @return
+     * @return 数据库中所有用户列表List
      */
     @Override
     public List<User> findAllUser() {

@@ -13,3 +13,9 @@ spring:
 mybatis:
   type-aliases-package: com.fsyume.eneity
   mapper-locations: classpath:mapper/*.xml
+
+# 又拍云配置信息
+upyun:
+  username: float
+  servername: float
+  password: nWR9B5CCL8sGIN2sYg1AK0DyK6LaiNHd
